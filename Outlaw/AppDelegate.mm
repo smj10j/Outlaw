@@ -6,10 +6,10 @@
 //  Copyright Conquer LLC 2012. All rights reserved.
 //
 
-#import "cocos2d.h"
-
+#import "Common.h"
 #import "AppDelegate.h"
 #import "IntroLayer.h"
+#import "TestFlight.h"
 
 @implementation AppController
 
@@ -17,14 +17,29 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+
+	//capture uncaught exceptions for logging
+	NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
+	
+	//testflight
+	if(BETA_BUILD) {
+		[TestFlight takeOff:@"dcb57a9ef2d39552f3b77d6fa6ec3bb0_MTQxOTk2MjAxMi0xMC0xMSAwMjo1NDowMy44OTg4NTk"];
+		[TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
+	}	
+	
+	
+	//start analytics
+	[Analytics startAnalytics];
+
+
 	// Create the main window
 	window_ = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	
 	
 	// Create an CCGLView with a RGB565 color buffer, and a depth buffer of 0-bits
 	CCGLView *glView = [CCGLView viewWithFrame:[window_ bounds]
-								   pixelFormat:kEAGLColorFormatRGB565	//kEAGLColorFormatRGBA8
-								   depthFormat:0	//GL_DEPTH_COMPONENT24_OES
+								   pixelFormat:kEAGLColorFormatRGBA8	//kEAGLColorFormatRGBA8
+								   depthFormat:GL_DEPTH_COMPONENT24_OES	//GL_DEPTH_COMPONENT24_OES
 							preserveBackbuffer:NO
 									sharegroup:nil
 								 multiSampling:NO
@@ -37,11 +52,13 @@
 	
 	director_.wantsFullScreenLayout = YES;
 	
-	// Display FSP and SPF
-	[director_ setDisplayStats:YES];
+	if(!DEVICE_BUILD) {
+		// Display FSP and SPF
+		[director_ setDisplayStats:YES];
+	}
 	
 	// set FPS at 60
-	[director_ setAnimationInterval:1.0/60];
+	[director_ setAnimationInterval:1.0/TARGET_FPS];
 	
 	// attach the openglView to the director
 	[director_ setView:glView];
@@ -158,5 +175,24 @@
 	
 	[super dealloc];
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+//send uncaught exceptions to Flurry
+void uncaughtExceptionHandler(NSException *exception) {
+	DebugLog(@"Uncaught exception: %@ - %@", exception.name, exception.reason);
+	[Analytics logError:@"Uncaught" message:@"Crash!" exception:exception];
+}
+
 @end
 
