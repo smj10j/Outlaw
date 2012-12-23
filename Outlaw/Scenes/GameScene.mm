@@ -84,11 +84,13 @@
 	
 	//draw the background tiles
 	LHSprite* sandTile = [_levelLoader createSpriteWithName:@"4-7" fromSheet:@"Tiles" fromSHFile:@"OutlawSprites" parent:_mainLayer];
+	[sandTile transformScale:5];
 	for(int x = -sandTile.boundingBox.size.width/2; x < _levelSize.width + sandTile.boundingBox.size.width/2; ) {
 		for(int y = -sandTile.boundingBox.size.height/2; y < _levelSize.height + sandTile.boundingBox.size.width/2; ) {
 			LHSprite* sandTile = [_levelLoader createSpriteWithName:@"4-7" fromSheet:@"Tiles" fromSHFile:@"OutlawSprites" parent:_mainLayer];
 			[sandTile setZOrder:0];
 			[sandTile transformPosition:ccp(x,y)];
+			[sandTile transformScale:5];
 			y+= sandTile.boundingBox.size.height;
 		}
 		x+= sandTile.boundingBox.size.width;
@@ -98,6 +100,7 @@
 	
 	_playerSprite = [_levelLoader createSpriteWithName:@"19-11" fromSheet:@"Tiles" fromSHFile:@"OutlawSprites" parent:_mainLayer];
 	[_playerSprite transformPosition:ccp(_levelSize.width/2, 100)];
+	[_playerSprite transformScale:5];
 	
 	
 }
@@ -159,11 +162,11 @@
 		
 		location = [[CCDirector sharedDirector] convertToGL: location];
 		
-		if(location.x < 200*SCALING_FACTOR_H && location.y < 200*SCALING_FACTOR_V) {
+		if(location.x < 300*SCALING_FACTOR_H && location.y < 300*SCALING_FACTOR_V) {
 			//touching joystick
 			_isMoving = true;
 			_movementVector = ccp(0,0);
-			_joystickCenter = location;
+			_joystickCenter = ccp(150*SCALING_FACTOR_H,150*SCALING_FACTOR_V);
 		}
 	}
 	
@@ -177,12 +180,14 @@
 		
 		location = [[CCDirector sharedDirector] convertToGL: location];
 		
-		if(location.x < 200*SCALING_FACTOR_H && location.y < 200*SCALING_FACTOR_V) {
-			//touching joystick
-
-			_movementVector = ccpNormalize(ccpSub(location, _joystickCenter));
+		if(false) {
+			//handle non joystick movements
+			continue;
 		}
-		DebugLog(@"Movement vector: %@", NSStringFromCGPoint(_movementVector));		
+		
+		_movementVector = ccpMult(ccpNormalize(ccpSub(location, _joystickCenter)), 3);
+
+		DebugLog(@"Movement vector: %@", NSStringFromCGPoint(_movementVector));
 	}
 }
 
