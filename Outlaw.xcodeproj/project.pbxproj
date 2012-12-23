@@ -226,6 +226,7 @@
 		AAF3E44316879A170096D7C6 /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AAF3E44216879A170096D7C6 /* libFlurry.a */; };
 		AAF3E4511687A0330096D7C6 /* ConfigManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = AAF3E4501687A0320096D7C6 /* ConfigManager.mm */; };
 		AAF3E4571687A1930096D7C6 /* GameConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = AAF3E4561687A1930096D7C6 /* GameConfig.plist */; };
+		AAF3E45D1687AA9A0096D7C6 /* Levels in Resources */ = {isa = PBXBuildFile; fileRef = AAF3E45C1687AA990096D7C6 /* Levels */; };
 		a27a6801a7e02573488cf2ae /* LHContactListener.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63faa4ee03f4d19437a2d01f /* LHContactListener.mm */; };
 		c1d7b53907c8999f8637a22c /* LHFixture.mm in Sources */ = {isa = PBXBuildFile; fileRef = ae757d5ca3555b0fca385c9e /* LHFixture.mm */; };
 		cbcf8a3be72e6868338383a0 /* LHTouchMgr.mm in Sources */ = {isa = PBXBuildFile; fileRef = a41826f9b6cfd4e5bfe15ed5 /* LHTouchMgr.mm */; };
@@ -671,6 +672,7 @@
 		AAF3E44F1687A0320096D7C6 /* ConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConfigManager.h; path = ../Managers/ConfigManager.h; sourceTree = "<group>"; };
 		AAF3E4501687A0320096D7C6 /* ConfigManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ConfigManager.mm; path = ../Managers/ConfigManager.mm; sourceTree = "<group>"; };
 		AAF3E4561687A1930096D7C6 /* GameConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = GameConfig.plist; path = Resources/GameConfig.plist; sourceTree = "<group>"; };
+		AAF3E45C1687AA990096D7C6 /* Levels */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Levels; path = Resources/Levels; sourceTree = "<group>"; };
 		a372192b40b20f50dc51d243 /* lhConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lhConfig.h; sourceTree = "<group>"; };
 		a41826f9b6cfd4e5bfe15ed5 /* LHTouchMgr.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = LHTouchMgr.mm; sourceTree = "<group>"; };
 		ae757d5ca3555b0fca385c9e /* LHFixture.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = LHFixture.mm; sourceTree = "<group>"; };
@@ -826,6 +828,7 @@
 		AAF3E0CE168788BF0096D7C6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AAF3E45C1687AA990096D7C6 /* Levels */,
 				AAF3E4561687A1930096D7C6 /* GameConfig.plist */,
 				AAF3E30416878F2B0096D7C6 /* images */,
 				AAF3E0CF168788BF0096D7C6 /* Default.png */,
@@ -1589,6 +1592,7 @@
 				AAF3E4281687956E0096D7C6 /* SSKeychain.podspec in Resources */,
 				AAF3E42C1687956E0096D7C6 /* VERSION in Resources */,
 				AAF3E4571687A1930096D7C6 /* GameConfig.plist in Resources */,
+				AAF3E45D1687AA9A0096D7C6 /* Levels in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

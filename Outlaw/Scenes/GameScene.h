@@ -17,6 +17,16 @@
 	LevelHelperLoader* _levelLoader;
 	b2World* _world;					// strong ref
 
+	CGSize _levelSize;
+	LHLayer* _mainLayer;
+
+
+	LHSprite* _playerSprite;
+	CGPoint _movementVector;
+	CGPoint _joystickCenter;
+	int _numTouchesOnScreen;
+	bool _isMoving;
+
 	float _fixedTimestepAccumulator;
 	
 	

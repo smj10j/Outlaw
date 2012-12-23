@@ -27,20 +27,37 @@
 
 -(id) init {
 	if( (self=[super init])) {
-		
-		// enable events
-		
+	
 		self.isTouchEnabled = YES;
-		
-		//CGSize winSize = [CCDirector sharedDirector].winSize;
-		
+
+		//variable initialization
 		_fixedTimestepAccumulator = 0;
 		
+		
+		CGSize winSize = [CCDirector sharedDirector].winSize;
+		[LevelHelperLoader dontStretchArt];
+
+		//create a LevelHelperLoader object that has the data of the specified level
+		_levelLoader = [[LevelHelperLoader alloc] initWithContentOfFile:[NSString stringWithFormat:@"Levels/Empty"]];
+		
+		//create all objects from the level file and adds them to the cocos2d layer (self)
+		[_levelLoader addObjectsToWorld:_world cocos2dLayer:self];
+
+		_levelSize = winSize.width < _levelLoader.gameWorldSize.size.width ? _levelLoader.gameWorldSize.size : winSize;
+		DebugLog(@"Level size: %f x %f", _levelSize.width, _levelSize.height);
+
+		_mainLayer = [_levelLoader layerWithUniqueName:@"MAIN_LAYER"];
+
+		//checks if the level has physics boundaries
+		if([_levelLoader hasPhysicBoundaries]) {
+			//if it does, it will create the physic boundaries
+			[_levelLoader createPhysicBoundaries:_world];
+		}	
 
 		// init physics
 		[self initPhysics];
-		
-		
+
+		[self testMovement];
 		
 		[self scheduleUpdate];
 	}
@@ -48,9 +65,8 @@
 }
 
 -(void) initPhysics {
-	
-	CGSize s = [[CCDirector sharedDirector] winSize];
-	
+	DebugLog(@"Initializing physics...");
+
 	b2Vec2 gravity;
 	gravity.Set(0.0f, -10.0f);
 	_world = new b2World(gravity);
@@ -60,35 +76,30 @@
 	_world->SetAllowSleeping(true);
 	
 	_world->SetContinuousPhysics(true);
+}
+
+-(void)testMovement {
 	
-	// Define the ground body.
-	b2BodyDef groundBodyDef;
-	groundBodyDef.position.Set(0, 0); // bottom-left corner
+	DebugLog(@"Drawing background...");
 	
-	// Call the body factory which allocates memory for the ground body
-	// from a pool and creates the ground box shape (also from a pool).
-	// The body is also added to the world.
-	b2Body* groundBody = _world->CreateBody(&groundBodyDef);
+	//draw the background tiles
+	LHSprite* sandTile = [_levelLoader createSpriteWithName:@"4-7" fromSheet:@"Tiles" fromSHFile:@"OutlawSprites" parent:_mainLayer];
+	for(int x = -sandTile.boundingBox.size.width/2; x < _levelSize.width + sandTile.boundingBox.size.width/2; ) {
+		for(int y = -sandTile.boundingBox.size.height/2; y < _levelSize.height + sandTile.boundingBox.size.width/2; ) {
+			LHSprite* sandTile = [_levelLoader createSpriteWithName:@"4-7" fromSheet:@"Tiles" fromSHFile:@"OutlawSprites" parent:_mainLayer];
+			[sandTile setZOrder:0];
+			[sandTile transformPosition:ccp(x,y)];
+			y+= sandTile.boundingBox.size.height;
+		}
+		x+= sandTile.boundingBox.size.width;
+	}
+	[sandTile removeSelf];
 	
-	// Define the ground box shape.
-	b2EdgeShape groundBox;		
 	
-	// bottom
+	_playerSprite = [_levelLoader createSpriteWithName:@"19-11" fromSheet:@"Tiles" fromSHFile:@"OutlawSprites" parent:_mainLayer];
+	[_playerSprite transformPosition:ccp(_levelSize.width/2, 100)];
 	
-	groundBox.Set(b2Vec2(0,0), b2Vec2(s.width/PTM_RATIO,0));
-	groundBody->CreateFixture(&groundBox,0);
 	
-	// top
-	groundBox.Set(b2Vec2(0,s.height/PTM_RATIO), b2Vec2(s.width/PTM_RATIO,s.height/PTM_RATIO));
-	groundBody->CreateFixture(&groundBox,0);
-	
-	// left
-	groundBox.Set(b2Vec2(0,s.height/PTM_RATIO), b2Vec2(0,0));
-	groundBody->CreateFixture(&groundBox,0);
-	
-	// right
-	groundBox.Set(b2Vec2(s.width/PTM_RATIO,s.height/PTM_RATIO), b2Vec2(s.width/PTM_RATIO,0));
-	groundBody->CreateFixture(&groundBox,0);
 }
 
 -(void) draw {
@@ -131,21 +142,57 @@
 	// Instruct the world to perform a single step of simulation. It is
 	// generally best to keep the time step and iterations fixed.
 	_world->Step(dt, velocityIterations, positionIterations);
-}
-
-- (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-	//Add a new body/atlas sprite at the touched location
-	for( UITouch *touch in touches ) {
-		CGPoint location = [touch locationInView: [touch view]];
-		
-		location = [[CCDirector sharedDirector] convertToGL: location];
-
-		
+	
+	
+	if(_isMoving) {
+		[_playerSprite transformPosition:ccpAdd(_movementVector, _playerSprite.position)];
 	}
 }
 
 
 
+- (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+	_numTouchesOnScreen+= [touches count];
+	
+	for( UITouch *touch in touches ) {
+		CGPoint location = [touch locationInView: [touch view]];
+		
+		location = [[CCDirector sharedDirector] convertToGL: location];
+		
+		if(location.x < 200*SCALING_FACTOR_H && location.y < 200*SCALING_FACTOR_V) {
+			//touching joystick
+			_isMoving = true;
+			_movementVector = ccp(0,0);
+			_joystickCenter = location;
+		}
+	}
+	
+}
+
+- (void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+
+	//Add a new body/atlas sprite at the touched location
+	for( UITouch *touch in touches ) {
+		CGPoint location = [touch locationInView: [touch view]];
+		
+		location = [[CCDirector sharedDirector] convertToGL: location];
+		
+		if(location.x < 200*SCALING_FACTOR_H && location.y < 200*SCALING_FACTOR_V) {
+			//touching joystick
+
+			_movementVector = ccpNormalize(ccpSub(location, _joystickCenter));
+		}
+		DebugLog(@"Movement vector: %@", NSStringFromCGPoint(_movementVector));		
+	}
+}
+
+- (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+	_numTouchesOnScreen-= [touches count];
+	if(_numTouchesOnScreen <= 0) {
+		_numTouchesOnScreen = 0;
+		_isMoving = false;
+	}
+}
 
 
 

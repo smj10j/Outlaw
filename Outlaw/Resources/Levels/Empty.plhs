@@ -45,7 +45,7 @@
 		<key>2HDSuffix</key>
 		<string>-ipadhd</string>
 		<key>BackgroundColor</key>
-		<string>{{0, 0}, {0, 3.1702376073721992e-10}}</string>
+		<string>{{0, 0}, {0, -1.9262463628725745e+279}}</string>
 		<key>BundleIdentifier</key>
 		<string></string>
 		<key>CustomClasses</key>
@@ -61,11 +61,11 @@
 		<key>PanValue</key>
 		<string>{0, 0}</string>
 		<key>ProjectName</key>
-		<string></string>
+		<string>Outlaw</string>
 		<key>ProjectPath</key>
-		<string></string>
+		<string>/Users/Steve/Code/Conquer/Outlaw/Outlaw/Resources/Levels</string>
 		<key>SafeFrame</key>
-		<string>{0, 0}</string>
+		<string>{480, 320}</string>
 		<key>Tags</key>
 		<array>
 			<string>DEFAULT</string>
