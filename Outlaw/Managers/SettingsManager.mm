@@ -204,11 +204,7 @@
 		bool accept = buttonIndex == 1;
 	
 		//analytics logging
-		NSString* levelPackPath = [SettingsManager stringForKey:SETTING_LAST_LEVEL_PACK_PATH];
-		NSString* levelPath = [SettingsManager stringForKey:SETTING_LAST_LEVEL_PATH];
 		NSDictionary* flurryParams = [NSDictionary dictionaryWithObjectsAndKeys:
-			[NSString stringWithFormat:@"%@:%@", levelPackPath, levelPath], @"Level_Pack_and_Name",
-			levelPackPath, @"Level_Pack",
 			[SettingsManager stringForKey:SETTING_CURRENT_VERSION], @"App_Version",
 			[NSNumber numberWithInt:[SettingsManager intForKey:SETTING_NUM_REVIEW_PROMPTS]], @"Num_Review_Prompts",
 		nil];

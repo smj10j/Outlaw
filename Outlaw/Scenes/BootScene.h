@@ -1,5 +1,5 @@
 //
-//  BootLayer.h
+//  BootScene.h
 //  Outlaw
 //
 //  Created by Stephen Johnson on 12/23/12.
@@ -11,7 +11,7 @@
 #import "Common.h"
 
 // HelloWorldLayer
-@interface BootLayer : CCLayer
+@interface BootScene : CCLayer
 {
 }
 

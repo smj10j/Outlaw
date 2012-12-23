@@ -1,5 +1,5 @@
 //
-//  BootLayer.mm
+//  BootScene.mm
 //  Outlaw
 //
 //  Created by Stephen Johnson on 12/23/12.
@@ -8,14 +8,12 @@
 
 
 // Import the interfaces
-#import "BootLayer.h"
-#import "HelloWorldLayer.h"
+#import "BootScene.h"
+#import "GameScene.h"
 #import "SimpleAudioEngine.h"
 #import "IAPManager.h"
 
-#pragma mark - BootLayer
-
-@implementation BootLayer
+@implementation BootScene
 
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.
 +(CCScene *) scene
@@ -24,7 +22,7 @@
 	CCScene *scene = [CCScene node];
 	
 	// 'layer' is an autorelease object.
-	BootLayer *layer = [BootLayer node];
+	BootScene *layer = [BootScene node];
 	
 	// add layer as a child to scene
 	[scene addChild: layer];
@@ -115,9 +113,18 @@
 	return self;
 }
 
--(void) onEnter
-{
+-(void) onEnter {
 	[super onEnter];
-	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[HelloWorldLayer scene] ]];
+	[self scheduleOnce:@selector(showMainLayer) delay:(DEVICE_BUILD ? 1.0f : 0.0f)];
 }
+
+-(void)showMainLayer {
+	[[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:0.5 scene:[GameScene scene]]];
+}
+
+-(void) onExit {
+	[super onExit];
+	if(DEBUG_MEMORY) DebugLog(@"BootLayer onExit");
+}
+
 @end

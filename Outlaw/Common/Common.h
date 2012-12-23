@@ -21,6 +21,7 @@
 
 //opens up the GameConfig.json file on run
 #define MODIFYING_GAME_CONFIG (true && !DISTRIBUTION_BUILD)
+#define GAME_CONFIG_REFRESH_RATE 5
 
 /******************* END USER-DEFINABLE ******************/
 
@@ -49,10 +50,18 @@
 /******************* USER-DEFINABLE ******************/
 
 #define TARGET_FPS 60
-#define TARGET_PHYSICS_STEP .03
+
+//Pixel to metres ratio. Box2D uses metres as the unit for measurement.
+//This ratio defines how many pixels correspond to 1 Box2D "metre"
+//Box2D is optimized for objects of 1x1 metre therefore it makes sense
+//to define the ratio so that your most common object type is 1x1 metre.
+#define PTM_RATIO 32
+
 
 #define DEBUG_ALL_THE_THINGS	( false							 && !DEVICE_BUILD)
+#define DEBUG_MEMORY			((false || DEBUG_ALL_THE_THINGS) && !DEVICE_BUILD)
 #define DEBUG_SETTINGS			((false || DEBUG_ALL_THE_THINGS) && !DEVICE_BUILD)
+#define DEBUG_CONFIG			((false || DEBUG_ALL_THE_THINGS) && !DEVICE_BUILD)
 #define DEBUG_REVIEWS			((false || DEBUG_ALL_THE_THINGS) && !DEVICE_BUILD)
 #define DEBUG_IAP				((false || DEBUG_ALL_THE_THINGS) && !DEVICE_BUILD)
 
@@ -62,6 +71,15 @@
 #define TESTFLIGHT_API_KEY @"dcb57a9ef2d39552f3b77d6fa6ec3bb0_MTQxOTk2MjAxMi0xMC0xMSAwMjo1NDowMy44OTg4NTk"
 #define FLURRY_API_KEY @"DPYDCDRY484SJVZ2D5CN"
 
+
+
+
+#define APP_STORE_ID 570590917
+#define APP_STORE_REVIEW_URL [NSString stringWithFormat:@"https://userpub.itunes.apple.com/WebObjects/MZUserPublishing.woa/wa/addUserReview?id=%d&type=Purple+Software", APP_STORE_ID]
+
+#define FACEBOOK_PAGE_URL @"https://www.facebook.com/SavePenguin"
+
+#define COMPANY_IDENTIFIER @"com.conquerllc"
 
 
 /******************* END USER-DEFINABLE ******************/
@@ -88,10 +106,11 @@
 
 
 // Common includes
-#include "cocos2d.h"
-#include "Utilities.h"
-#include "Analytics.h"
-#include "SettingsManager.h"
+#import "cocos2d.h"
+#import "Utilities.h"
+#import "Analytics.h"
+#import "SettingsManager.h"
+#import "ConfigManager.h"
 
 #endif
 

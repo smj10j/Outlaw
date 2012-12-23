@@ -199,8 +199,8 @@
 		AAF3E30A16878F2B0096D7C6 /* OutlawSprites_Tiles-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = AAF3E30616878F2B0096D7C6 /* OutlawSprites_Tiles-hd.png */; };
 		AAF3E30B16878F2B0096D7C6 /* OutlawSprites_Tiles-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = AAF3E30716878F2B0096D7C6 /* OutlawSprites_Tiles-ipadhd.png */; };
 		AAF3E30C16878F2B0096D7C6 /* OutlawSprites_Tiles.png in Resources */ = {isa = PBXBuildFile; fileRef = AAF3E30816878F2B0096D7C6 /* OutlawSprites_Tiles.png */; };
-		AAF3E323168791F60096D7C6 /* HelloWorldLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = AAF3E320168791F60096D7C6 /* HelloWorldLayer.mm */; };
-		AAF3E324168791F60096D7C6 /* BootLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = AAF3E322168791F60096D7C6 /* BootLayer.mm */; };
+		AAF3E323168791F60096D7C6 /* GameScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = AAF3E320168791F60096D7C6 /* GameScene.mm */; };
+		AAF3E324168791F60096D7C6 /* BootScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = AAF3E322168791F60096D7C6 /* BootScene.mm */; };
 		AAF3E334168794EC0096D7C6 /* Analytics.mm in Sources */ = {isa = PBXBuildFile; fileRef = AAF3E32E168794EC0096D7C6 /* Analytics.mm */; };
 		AAF3E335168794EC0096D7C6 /* IAPManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = AAF3E330168794EC0096D7C6 /* IAPManager.mm */; };
 		AAF3E336168794EC0096D7C6 /* SettingsManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = AAF3E332168794EC0096D7C6 /* SettingsManager.mm */; };
@@ -224,6 +224,8 @@
 		AAF3E43D168798D70096D7C6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAF3E43C168798D70096D7C6 /* Security.framework */; };
 		AAF3E43F168798FF0096D7C6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAF3E43E168798FF0096D7C6 /* SystemConfiguration.framework */; };
 		AAF3E44316879A170096D7C6 /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AAF3E44216879A170096D7C6 /* libFlurry.a */; };
+		AAF3E4511687A0330096D7C6 /* ConfigManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = AAF3E4501687A0320096D7C6 /* ConfigManager.mm */; };
+		AAF3E4571687A1930096D7C6 /* GameConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = AAF3E4561687A1930096D7C6 /* GameConfig.plist */; };
 		a27a6801a7e02573488cf2ae /* LHContactListener.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63faa4ee03f4d19437a2d01f /* LHContactListener.mm */; };
 		c1d7b53907c8999f8637a22c /* LHFixture.mm in Sources */ = {isa = PBXBuildFile; fileRef = ae757d5ca3555b0fca385c9e /* LHFixture.mm */; };
 		cbcf8a3be72e6868338383a0 /* LHTouchMgr.mm in Sources */ = {isa = PBXBuildFile; fileRef = a41826f9b6cfd4e5bfe15ed5 /* LHTouchMgr.mm */; };
@@ -628,10 +630,10 @@
 		AAF3E30716878F2B0096D7C6 /* OutlawSprites_Tiles-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "OutlawSprites_Tiles-ipadhd.png"; sourceTree = "<group>"; };
 		AAF3E30816878F2B0096D7C6 /* OutlawSprites_Tiles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OutlawSprites_Tiles.png; sourceTree = "<group>"; };
 		AAF3E317168791E80096D7C6 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
-		AAF3E31F168791F60096D7C6 /* HelloWorldLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
-		AAF3E320168791F60096D7C6 /* HelloWorldLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HelloWorldLayer.mm; sourceTree = "<group>"; };
-		AAF3E321168791F60096D7C6 /* BootLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BootLayer.h; sourceTree = "<group>"; };
-		AAF3E322168791F60096D7C6 /* BootLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BootLayer.mm; sourceTree = "<group>"; };
+		AAF3E31F168791F60096D7C6 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		AAF3E320168791F60096D7C6 /* GameScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameScene.mm; sourceTree = "<group>"; };
+		AAF3E321168791F60096D7C6 /* BootScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BootScene.h; sourceTree = "<group>"; };
+		AAF3E322168791F60096D7C6 /* BootScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BootScene.mm; sourceTree = "<group>"; };
 		AAF3E32D168794EC0096D7C6 /* Analytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Analytics.h; sourceTree = "<group>"; };
 		AAF3E32E168794EC0096D7C6 /* Analytics.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Analytics.mm; sourceTree = "<group>"; };
 		AAF3E32F168794EC0096D7C6 /* IAPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAPManager.h; sourceTree = "<group>"; };
@@ -666,6 +668,9 @@
 		AAF3E43E168798FF0096D7C6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		AAF3E44116879A170096D7C6 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
 		AAF3E44216879A170096D7C6 /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry.a; sourceTree = "<group>"; };
+		AAF3E44F1687A0320096D7C6 /* ConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConfigManager.h; path = ../Managers/ConfigManager.h; sourceTree = "<group>"; };
+		AAF3E4501687A0320096D7C6 /* ConfigManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ConfigManager.mm; path = ../Managers/ConfigManager.mm; sourceTree = "<group>"; };
+		AAF3E4561687A1930096D7C6 /* GameConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = GameConfig.plist; path = Resources/GameConfig.plist; sourceTree = "<group>"; };
 		a372192b40b20f50dc51d243 /* lhConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lhConfig.h; sourceTree = "<group>"; };
 		a41826f9b6cfd4e5bfe15ed5 /* LHTouchMgr.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = LHTouchMgr.mm; sourceTree = "<group>"; };
 		ae757d5ca3555b0fca385c9e /* LHFixture.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = LHFixture.mm; sourceTree = "<group>"; };
@@ -821,6 +826,7 @@
 		AAF3E0CE168788BF0096D7C6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AAF3E4561687A1930096D7C6 /* GameConfig.plist */,
 				AAF3E30416878F2B0096D7C6 /* images */,
 				AAF3E0CF168788BF0096D7C6 /* Default.png */,
 				AAF3E0D1168788BF0096D7C6 /* Default@2x.png */,
@@ -1372,6 +1378,8 @@
 			isa = PBXGroup;
 			children = (
 				AAF3E317168791E80096D7C6 /* Common.h */,
+				AAF3E44F1687A0320096D7C6 /* ConfigManager.h */,
+				AAF3E4501687A0320096D7C6 /* ConfigManager.mm */,
 				AAF3E3371687950D0096D7C6 /* Utilities.h */,
 				AAF3E3381687950D0096D7C6 /* Utilities.mm */,
 			);
@@ -1381,10 +1389,10 @@
 		AAF3E31E168791F50096D7C6 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				AAF3E31F168791F60096D7C6 /* HelloWorldLayer.h */,
-				AAF3E320168791F60096D7C6 /* HelloWorldLayer.mm */,
-				AAF3E321168791F60096D7C6 /* BootLayer.h */,
-				AAF3E322168791F60096D7C6 /* BootLayer.mm */,
+				AAF3E31F168791F60096D7C6 /* GameScene.h */,
+				AAF3E320168791F60096D7C6 /* GameScene.mm */,
+				AAF3E321168791F60096D7C6 /* BootScene.h */,
+				AAF3E322168791F60096D7C6 /* BootScene.mm */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -1580,6 +1588,7 @@
 				AAF3E4261687956E0096D7C6 /* Readme.markdown in Resources */,
 				AAF3E4281687956E0096D7C6 /* SSKeychain.podspec in Resources */,
 				AAF3E42C1687956E0096D7C6 /* VERSION in Resources */,
+				AAF3E4571687A1930096D7C6 /* GameConfig.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1778,8 +1787,8 @@
 				7c4477967b3e8d5773baaf1c /* LHSprite.mm in Sources */,
 				cbcf8a3be72e6868338383a0 /* LHTouchMgr.mm in Sources */,
 				250e1473997f280a794687eb /* SHDocumentLoader.mm in Sources */,
-				AAF3E323168791F60096D7C6 /* HelloWorldLayer.mm in Sources */,
-				AAF3E324168791F60096D7C6 /* BootLayer.mm in Sources */,
+				AAF3E323168791F60096D7C6 /* GameScene.mm in Sources */,
+				AAF3E324168791F60096D7C6 /* BootScene.mm in Sources */,
 				AAF3E334168794EC0096D7C6 /* Analytics.mm in Sources */,
 				AAF3E335168794EC0096D7C6 /* IAPManager.mm in Sources */,
 				AAF3E336168794EC0096D7C6 /* SettingsManager.mm in Sources */,
@@ -1789,6 +1798,7 @@
 				AAF3E41F1687956E0096D7C6 /* JSONKit.m in Sources */,
 				AAF3E4211687956E0096D7C6 /* Reachability.m in Sources */,
 				AAF3E4271687956E0096D7C6 /* SSKeychain.m in Sources */,
+				AAF3E4511687A0330096D7C6 /* ConfigManager.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

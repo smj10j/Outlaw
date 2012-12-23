@@ -1,31 +1,22 @@
 //
-//  HelloWorldLayer.mm
+//  GameScene.mm
 //  Outlaw
 //
 //  Created by Stephen Johnson on 12/23/12.
 //  Copyright Conquer LLC 2012. All rights reserved.
 //
 
-// Import the interfaces
-#import "HelloWorldLayer.h"
+#import "GameScene.h"
 
-// Not included in "cocos2d.h"
-#import "CCPhysicsSprite.h"
 
-// Needed to obtain the Navigation Controller
-#import "AppDelegate.h"
+@implementation GameScene
 
-#pragma mark - HelloWorldLayer
-
-@implementation HelloWorldLayer
-
-+(CCScene *) scene
-{
++(CCScene *) scene {
 	// 'scene' is an autorelease object.
 	CCScene *scene = [CCScene node];
 	
 	// 'layer' is an autorelease object.
-	HelloWorldLayer *layer = [HelloWorldLayer node];
+	GameScene *layer = [GameScene node];
 	
 	// add layer as a child to scene
 	[scene addChild: layer];
@@ -34,8 +25,7 @@
 	return scene;
 }
 
--(id) init
-{
+-(id) init {
 	if( (self=[super init])) {
 		
 		// enable events
@@ -44,6 +34,9 @@
 		
 		//CGSize winSize = [CCDirector sharedDirector].winSize;
 		
+		_fixedTimestepAccumulator = 0;
+		
+
 		// init physics
 		[self initPhysics];
 		
@@ -54,16 +47,7 @@
 	return self;
 }
 
--(void) dealloc
-{
-	delete _world;
-	_world = NULL;
-	
-	[super dealloc];
-}	
-
--(void) initPhysics
-{
+-(void) initPhysics {
 	
 	CGSize s = [[CCDirector sharedDirector] winSize];
 	
@@ -107,29 +91,46 @@
 	groundBody->CreateFixture(&groundBox,0);
 }
 
--(void) draw
-{
-	//
-	// IMPORTANT:
-	// This is only for debug purposes
-	// It is recommend to disable it
-	//
+-(void) draw {
 	[super draw];
 }
 
--(void) update: (ccTime) dt
-{
-	//It is recommended that a fixed time step is used with Box2D for stability
-	//of the simulation, however, we are using a variable time step here.
-	//You need to make an informed choice, the following URL is useful
-	//http://gafferongames.com/game-physics/fix-your-timestep/
+-(void) update: (ccTime) dt {
 	
-	int32 velocityIterations = 8;
-	int32 positionIterations = 1;
+	_fixedTimestepAccumulator+= dt;
+	//DebugLog(@"dt = %f, _fixedTimestepAccumulator = %f", dt, _fixedTimestepAccumulator);
+	
+	//dynamically set this guy
+	const int BASELINE_MAX_STEPS = [ConfigManager intForKey:CONFIG_SIMULATION_MAX_STEPS];
+	static float maxSteps = BASELINE_MAX_STEPS;
+	
+	const double stepSize = [ConfigManager doubleForKey:CONFIG_SIMULATION_STEP_SIZE];
+	const int steps = _fixedTimestepAccumulator / stepSize;
+		
+	if (steps > 0) {
+
+		const int stepsClamped = MIN(steps, (int)maxSteps);
+        _fixedTimestepAccumulator-= (stepsClamped * stepSize);
+	 
+		for (int i = 0; i < stepsClamped; i++) {
+			[self singleUpdateStep:stepSize];
+		}
+		
+	}else {
+		//no step - we're just too dang fast!
+	}
+}
+
+-(void) singleUpdateStep:(ccTime) dt {
+	
+	//DebugLog(@"singleUpdateStep. _fixedTimestepAccumulator = %f", _fixedTimestepAccumulator);
+
+	const static int32 velocityIterations = 8;
+	const static int32 positionIterations = 1;
 	
 	// Instruct the world to perform a single step of simulation. It is
 	// generally best to keep the time step and iterations fixed.
-	_world->Step(dt, velocityIterations, positionIterations);	
+	_world->Step(dt, velocityIterations, positionIterations);
 }
 
 - (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -142,4 +143,44 @@
 		
 	}
 }
+
+
+
+
+
+
+
+-(void) onEnter {
+	[super onEnter];
+}
+
+
+-(void) onExit {
+	if(DEBUG_MEMORY) DebugLog(@"HelloWorldLayer onExit");
+
+	for(LHSprite* sprite in _levelLoader.allSprites) {
+		[sprite stopAnimation];
+	}
+	
+	[super onExit];
+}
+
+-(void) dealloc {
+	if(DEBUG_MEMORY) DebugLog(@"HelloWorldLayer dealloc");
+	if(DEBUG_MEMORY) report_memory();
+	
+	[_levelLoader removeAllPhysics];
+	[_levelLoader release];
+	_levelLoader = nil;
+
+	delete _world;
+	_world = NULL;
+			
+	[super dealloc];
+	
+	if(DEBUG_MEMORY) DebugLog(@"End HelloWorldLayer dealloc");
+	if(DEBUG_MEMORY) report_memory();
+}
+
+
 @end
