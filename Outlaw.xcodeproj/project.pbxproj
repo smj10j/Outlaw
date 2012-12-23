@@ -200,17 +200,14 @@
 		AAF3E30B16878F2B0096D7C6 /* OutlawSprites_Tiles-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = AAF3E30716878F2B0096D7C6 /* OutlawSprites_Tiles-ipadhd.png */; };
 		AAF3E30C16878F2B0096D7C6 /* OutlawSprites_Tiles.png in Resources */ = {isa = PBXBuildFile; fileRef = AAF3E30816878F2B0096D7C6 /* OutlawSprites_Tiles.png */; };
 		AAF3E323168791F60096D7C6 /* HelloWorldLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = AAF3E320168791F60096D7C6 /* HelloWorldLayer.mm */; };
-		AAF3E324168791F60096D7C6 /* IntroLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = AAF3E322168791F60096D7C6 /* IntroLayer.mm */; };
+		AAF3E324168791F60096D7C6 /* BootLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = AAF3E322168791F60096D7C6 /* BootLayer.mm */; };
 		AAF3E334168794EC0096D7C6 /* Analytics.mm in Sources */ = {isa = PBXBuildFile; fileRef = AAF3E32E168794EC0096D7C6 /* Analytics.mm */; };
 		AAF3E335168794EC0096D7C6 /* IAPManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = AAF3E330168794EC0096D7C6 /* IAPManager.mm */; };
 		AAF3E336168794EC0096D7C6 /* SettingsManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = AAF3E332168794EC0096D7C6 /* SettingsManager.mm */; };
 		AAF3E3391687950D0096D7C6 /* Utilities.mm in Sources */ = {isa = PBXBuildFile; fileRef = AAF3E3381687950D0096D7C6 /* Utilities.mm */; };
 		AAF3E3C31687956E0096D7C6 /* EBPurchase.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF3E33C1687956E0096D7C6 /* EBPurchase.m */; };
 		AAF3E3C41687956E0096D7C6 /* SKProduct+LocalizedPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF3E33E1687956E0096D7C6 /* SKProduct+LocalizedPrice.m */; };
-		AAF3E3C51687956E0096D7C6 /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AAF3E3421687956E0096D7C6 /* libFlurry.a */; };
-		AAF3E41E1687956E0096D7C6 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = AAF3E3A31687956E0096D7C6 /* CHANGELOG.md */; };
 		AAF3E41F1687956E0096D7C6 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF3E3A51687956E0096D7C6 /* JSONKit.m */; };
-		AAF3E4201687956E0096D7C6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = AAF3E3A61687956E0096D7C6 /* README.md */; };
 		AAF3E4211687956E0096D7C6 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF3E3A91687956E0096D7C6 /* Reachability.m */; };
 		AAF3E4221687956E0096D7C6 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = AAF3E3AB1687956E0096D7C6 /* .gitignore */; };
 		AAF3E4231687956E0096D7C6 /* Changelog.markdown in Resources */ = {isa = PBXBuildFile; fileRef = AAF3E3AC1687956E0096D7C6 /* Changelog.markdown */; };
@@ -221,13 +218,12 @@
 		AAF3E4281687956E0096D7C6 /* SSKeychain.podspec in Resources */ = {isa = PBXBuildFile; fileRef = AAF3E3B21687956E0096D7C6 /* SSKeychain.podspec */; };
 		AAF3E42C1687956E0096D7C6 /* VERSION in Resources */ = {isa = PBXBuildFile; fileRef = AAF3E3BA1687956E0096D7C6 /* VERSION */; };
 		AAF3E42D1687956E0096D7C6 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AAF3E3BC1687956E0096D7C6 /* libTestFlight.a */; };
-		AAF3E42E1687956E0096D7C6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = AAF3E3BD1687956E0096D7C6 /* README.md */; };
-		AAF3E42F1687956E0096D7C6 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = AAF3E3BE1687956E0096D7C6 /* release_notes.md */; };
 		AAF3E437168798B50096D7C6 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAF3E436168798B50096D7C6 /* StoreKit.framework */; };
 		AAF3E439168798BA0096D7C6 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAF3E438168798BA0096D7C6 /* CFNetwork.framework */; };
 		AAF3E43B168798C80096D7C6 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAF3E43A168798C80096D7C6 /* MessageUI.framework */; };
 		AAF3E43D168798D70096D7C6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAF3E43C168798D70096D7C6 /* Security.framework */; };
 		AAF3E43F168798FF0096D7C6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAF3E43E168798FF0096D7C6 /* SystemConfiguration.framework */; };
+		AAF3E44316879A170096D7C6 /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AAF3E44216879A170096D7C6 /* libFlurry.a */; };
 		a27a6801a7e02573488cf2ae /* LHContactListener.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63faa4ee03f4d19437a2d01f /* LHContactListener.mm */; };
 		c1d7b53907c8999f8637a22c /* LHFixture.mm in Sources */ = {isa = PBXBuildFile; fileRef = ae757d5ca3555b0fca385c9e /* LHFixture.mm */; };
 		cbcf8a3be72e6868338383a0 /* LHTouchMgr.mm in Sources */ = {isa = PBXBuildFile; fileRef = a41826f9b6cfd4e5bfe15ed5 /* LHTouchMgr.mm */; };
@@ -634,8 +630,8 @@
 		AAF3E317168791E80096D7C6 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		AAF3E31F168791F60096D7C6 /* HelloWorldLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
 		AAF3E320168791F60096D7C6 /* HelloWorldLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HelloWorldLayer.mm; sourceTree = "<group>"; };
-		AAF3E321168791F60096D7C6 /* IntroLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
-		AAF3E322168791F60096D7C6 /* IntroLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = IntroLayer.mm; sourceTree = "<group>"; };
+		AAF3E321168791F60096D7C6 /* BootLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BootLayer.h; sourceTree = "<group>"; };
+		AAF3E322168791F60096D7C6 /* BootLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BootLayer.mm; sourceTree = "<group>"; };
 		AAF3E32D168794EC0096D7C6 /* Analytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Analytics.h; sourceTree = "<group>"; };
 		AAF3E32E168794EC0096D7C6 /* Analytics.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Analytics.mm; sourceTree = "<group>"; };
 		AAF3E32F168794EC0096D7C6 /* IAPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAPManager.h; sourceTree = "<group>"; };
@@ -648,12 +644,8 @@
 		AAF3E33C1687956E0096D7C6 /* EBPurchase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBPurchase.m; sourceTree = "<group>"; };
 		AAF3E33D1687956E0096D7C6 /* SKProduct+LocalizedPrice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKProduct+LocalizedPrice.h"; sourceTree = "<group>"; };
 		AAF3E33E1687956E0096D7C6 /* SKProduct+LocalizedPrice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKProduct+LocalizedPrice.m"; sourceTree = "<group>"; };
-		AAF3E3411687956E0096D7C6 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
-		AAF3E3421687956E0096D7C6 /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry.a; sourceTree = "<group>"; };
-		AAF3E3A31687956E0096D7C6 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGELOG.md; sourceTree = "<group>"; };
 		AAF3E3A41687956E0096D7C6 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		AAF3E3A51687956E0096D7C6 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
-		AAF3E3A61687956E0096D7C6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		AAF3E3A81687956E0096D7C6 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		AAF3E3A91687956E0096D7C6 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		AAF3E3AB1687956E0096D7C6 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -666,14 +658,14 @@
 		AAF3E3B21687956E0096D7C6 /* SSKeychain.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SSKeychain.podspec; sourceTree = "<group>"; };
 		AAF3E3BA1687956E0096D7C6 /* VERSION */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VERSION; sourceTree = "<group>"; };
 		AAF3E3BC1687956E0096D7C6 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
-		AAF3E3BD1687956E0096D7C6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		AAF3E3BE1687956E0096D7C6 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
 		AAF3E3BF1687956E0096D7C6 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		AAF3E436168798B50096D7C6 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		AAF3E438168798BA0096D7C6 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		AAF3E43A168798C80096D7C6 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		AAF3E43C168798D70096D7C6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		AAF3E43E168798FF0096D7C6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		AAF3E44116879A170096D7C6 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
+		AAF3E44216879A170096D7C6 /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry.a; sourceTree = "<group>"; };
 		a372192b40b20f50dc51d243 /* lhConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lhConfig.h; sourceTree = "<group>"; };
 		a41826f9b6cfd4e5bfe15ed5 /* LHTouchMgr.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = LHTouchMgr.mm; sourceTree = "<group>"; };
 		ae757d5ca3555b0fca385c9e /* LHFixture.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = LHFixture.mm; sourceTree = "<group>"; };
@@ -712,8 +704,8 @@
 				AAF3E0C8168788BF0096D7C6 /* Foundation.framework in Frameworks */,
 				AAF3E0CA168788BF0096D7C6 /* CoreGraphics.framework in Frameworks */,
 				AAF3E0CC168788BF0096D7C6 /* GameKit.framework in Frameworks */,
-				AAF3E3C51687956E0096D7C6 /* libFlurry.a in Frameworks */,
 				AAF3E42D1687956E0096D7C6 /* libTestFlight.a in Frameworks */,
+				AAF3E44316879A170096D7C6 /* libFlurry.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -852,16 +844,16 @@
 		AAF3E0EC168788BF0096D7C6 /* libs */ = {
 			isa = PBXGroup;
 			children = (
-				AAF3E33A1687956E0096D7C6 /* EBPurchase */,
-				AAF3E33F1687956E0096D7C6 /* Flurry iPhone SDK v4.0.6 */,
-				AAF3E3A21687956E0096D7C6 /* JSONKit */,
-				AAF3E3A71687956E0096D7C6 /* Reachability */,
-				AAF3E3AA1687956E0096D7C6 /* SSKeychain */,
-				AAF3E3BB1687956E0096D7C6 /* TestFlightSDK1.1 */,
 				AAF3E20E168788C10096D7C6 /* LICENSE_cocos2d.txt */,
 				AAF3E21D168788C10096D7C6 /* LICENSE_CocosDenshion.txt */,
 				AAF3E24F168788C10096D7C6 /* LICENSE_Kazmath.txt */,
 				AAF3E2E2168788C20096D7C6 /* LICENSE_Box2D.txt */,
+				AAF3E44016879A170096D7C6 /* Flurry */,
+				AAF3E33A1687956E0096D7C6 /* EBPurchase */,
+				AAF3E3A21687956E0096D7C6 /* JSONKit */,
+				AAF3E3A71687956E0096D7C6 /* Reachability */,
+				AAF3E3AA1687956E0096D7C6 /* SSKeychain */,
+				AAF3E3BB1687956E0096D7C6 /* TestFlightSDK1.1 */,
 				AAF3E0ED168788BF0096D7C6 /* cocos2d */,
 				AAF3E20F168788C10096D7C6 /* CocosDenshion */,
 				AAF3E21E168788C10096D7C6 /* kazmath */,
@@ -1391,8 +1383,8 @@
 			children = (
 				AAF3E31F168791F60096D7C6 /* HelloWorldLayer.h */,
 				AAF3E320168791F60096D7C6 /* HelloWorldLayer.mm */,
-				AAF3E321168791F60096D7C6 /* IntroLayer.h */,
-				AAF3E322168791F60096D7C6 /* IntroLayer.mm */,
+				AAF3E321168791F60096D7C6 /* BootLayer.h */,
+				AAF3E322168791F60096D7C6 /* BootLayer.mm */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -1422,31 +1414,11 @@
 			path = libs/EBPurchase;
 			sourceTree = "<group>";
 		};
-		AAF3E33F1687956E0096D7C6 /* Flurry iPhone SDK v4.0.6 */ = {
-			isa = PBXGroup;
-			children = (
-				AAF3E3401687956E0096D7C6 /* Flurry */,
-			);
-			name = "Flurry iPhone SDK v4.0.6";
-			path = "libs/Flurry iPhone SDK v4.0.6";
-			sourceTree = "<group>";
-		};
-		AAF3E3401687956E0096D7C6 /* Flurry */ = {
-			isa = PBXGroup;
-			children = (
-				AAF3E3411687956E0096D7C6 /* Flurry.h */,
-				AAF3E3421687956E0096D7C6 /* libFlurry.a */,
-			);
-			path = Flurry;
-			sourceTree = "<group>";
-		};
 		AAF3E3A21687956E0096D7C6 /* JSONKit */ = {
 			isa = PBXGroup;
 			children = (
-				AAF3E3A31687956E0096D7C6 /* CHANGELOG.md */,
 				AAF3E3A41687956E0096D7C6 /* JSONKit.h */,
 				AAF3E3A51687956E0096D7C6 /* JSONKit.m */,
-				AAF3E3A61687956E0096D7C6 /* README.md */,
 			);
 			name = JSONKit;
 			path = libs/JSONKit;
@@ -1483,12 +1455,20 @@
 			isa = PBXGroup;
 			children = (
 				AAF3E3BC1687956E0096D7C6 /* libTestFlight.a */,
-				AAF3E3BD1687956E0096D7C6 /* README.md */,
-				AAF3E3BE1687956E0096D7C6 /* release_notes.md */,
 				AAF3E3BF1687956E0096D7C6 /* TestFlight.h */,
 			);
 			name = TestFlightSDK1.1;
 			path = libs/TestFlightSDK1.1;
+			sourceTree = "<group>";
+		};
+		AAF3E44016879A170096D7C6 /* Flurry */ = {
+			isa = PBXGroup;
+			children = (
+				AAF3E44116879A170096D7C6 /* Flurry.h */,
+				AAF3E44216879A170096D7C6 /* libFlurry.a */,
+			);
+			name = Flurry;
+			path = "libs/Flurry iPad SDK v4.1.0/Flurry";
 			sourceTree = "<group>";
 		};
 		a7a2907c30322286ead7472e /* LevelHelper */ = {
@@ -1593,8 +1573,6 @@
 				AAF3E30A16878F2B0096D7C6 /* OutlawSprites_Tiles-hd.png in Resources */,
 				AAF3E30B16878F2B0096D7C6 /* OutlawSprites_Tiles-ipadhd.png in Resources */,
 				AAF3E30C16878F2B0096D7C6 /* OutlawSprites_Tiles.png in Resources */,
-				AAF3E41E1687956E0096D7C6 /* CHANGELOG.md in Resources */,
-				AAF3E4201687956E0096D7C6 /* README.md in Resources */,
 				AAF3E4221687956E0096D7C6 /* .gitignore in Resources */,
 				AAF3E4231687956E0096D7C6 /* Changelog.markdown in Resources */,
 				AAF3E4241687956E0096D7C6 /* LICENSE in Resources */,
@@ -1602,8 +1580,6 @@
 				AAF3E4261687956E0096D7C6 /* Readme.markdown in Resources */,
 				AAF3E4281687956E0096D7C6 /* SSKeychain.podspec in Resources */,
 				AAF3E42C1687956E0096D7C6 /* VERSION in Resources */,
-				AAF3E42E1687956E0096D7C6 /* README.md in Resources */,
-				AAF3E42F1687956E0096D7C6 /* release_notes.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1803,7 +1779,7 @@
 				cbcf8a3be72e6868338383a0 /* LHTouchMgr.mm in Sources */,
 				250e1473997f280a794687eb /* SHDocumentLoader.mm in Sources */,
 				AAF3E323168791F60096D7C6 /* HelloWorldLayer.mm in Sources */,
-				AAF3E324168791F60096D7C6 /* IntroLayer.mm in Sources */,
+				AAF3E324168791F60096D7C6 /* BootLayer.mm in Sources */,
 				AAF3E334168794EC0096D7C6 /* Analytics.mm in Sources */,
 				AAF3E335168794EC0096D7C6 /* IAPManager.mm in Sources */,
 				AAF3E336168794EC0096D7C6 /* SettingsManager.mm in Sources */,
@@ -1877,9 +1853,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/Outlaw/libs/Flurry iPhone SDK v4.0.6/Flurry\"",
-					"\"$(SRCROOT)/Outlaw/libs/Flurry iPhone SDK v4.0.6/FlurryAds\"",
 					"\"$(SRCROOT)/Outlaw/libs/TestFlightSDK1.1\"",
+					"\"$(SRCROOT)/Outlaw/libs/Flurry iPad SDK v4.1.0/Flurry\"",
 				);
 				OTHER_LDFLAGS = (
 					"-lz",
@@ -1908,9 +1883,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/Outlaw/libs/Flurry iPhone SDK v4.0.6/Flurry\"",
-					"\"$(SRCROOT)/Outlaw/libs/Flurry iPhone SDK v4.0.6/FlurryAds\"",
 					"\"$(SRCROOT)/Outlaw/libs/TestFlightSDK1.1\"",
+					"\"$(SRCROOT)/Outlaw/libs/Flurry iPad SDK v4.1.0/Flurry\"",
 				);
 				OTHER_LDFLAGS = (
 					"-lz",

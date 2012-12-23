@@ -8,7 +8,7 @@
 
 #import "Common.h"
 #import "AppDelegate.h"
-#import "IntroLayer.h"
+#import "BootLayer.h"
 #import "TestFlight.h"
 
 @implementation AppController
@@ -23,7 +23,7 @@
 	
 	//testflight
 	if(BETA_BUILD) {
-		[TestFlight takeOff:@"dcb57a9ef2d39552f3b77d6fa6ec3bb0_MTQxOTk2MjAxMi0xMC0xMSAwMjo1NDowMy44OTg4NTk"];
+		[TestFlight takeOff:TESTFLIGHT_API_KEY];
 		[TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
 	}	
 	
@@ -113,7 +113,7 @@
 	if(director.runningScene == nil) {
 		// Add the first scene to the stack. The director will draw it immediately into the framebuffer. (Animation is started automatically when the view is displayed.)
 		// and add the scene to the stack. The director will run it when it automatically when the view is displayed.
-		[director runWithScene: [IntroLayer scene]];
+		[director runWithScene: [BootLayer scene]];
 	}
 }
 
