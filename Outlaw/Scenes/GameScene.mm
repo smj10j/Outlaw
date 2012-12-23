@@ -166,7 +166,7 @@
 			//touching joystick
 			_isMoving = true;
 			_movementVector = ccp(0,0);
-			_joystickCenter = ccp(150*SCALING_FACTOR_H,150*SCALING_FACTOR_V);
+			_joystickCenter = location;
 		}
 	}
 	
@@ -185,7 +185,12 @@
 			continue;
 		}
 		
-		_movementVector = ccpMult(ccpNormalize(ccpSub(location, _joystickCenter)), 3);
+		CGPoint diff = ccpSub(location, _joystickCenter);
+		_movementVector = ccpMult(ccpNormalize(diff), 5);
+		
+		//slowly redefine our center point so the joystick is more sensitive
+		_joystickCenter = ccpAdd(ccpMult(diff,.10), _joystickCenter);
+
 
 		DebugLog(@"Movement vector: %@", NSStringFromCGPoint(_movementVector));
 	}
