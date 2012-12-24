@@ -8,8 +8,7 @@
 
 #import "Common.h"
 #import "Box2D.h"
-#import "LevelHelperLoader.h"
-#import "CCPhysicsSprite.h"
+#import "Player.h"
 
 // HelloWorldLayer
 @interface GameScene : CCLayer
@@ -21,11 +20,10 @@
 	LHLayer* _mainLayer;
 
 
-	LHSprite* _playerSprite;
-	CGPoint _movementVector;
+	Player* _player;
+
 	CGPoint _joystickCenter;
 	int _numTouchesOnScreen;
-	bool _isMoving;
 
 	float _fixedTimestepAccumulator;
 	

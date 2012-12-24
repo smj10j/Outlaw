@@ -98,10 +98,18 @@
 	[sandTile removeSelf];
 	
 	
-	_playerSprite = [_levelLoader createSpriteWithName:@"19-11" fromSheet:@"Tiles" fromSHFile:@"OutlawSprites" parent:_mainLayer];
-	[_playerSprite transformPosition:ccp(_levelSize.width/2, 100)];
-	[_playerSprite transformScale:5];
+	LHSprite* playerSprite = [_levelLoader createSpriteWithName:@"19-11" fromSheet:@"Tiles" fromSHFile:@"OutlawSprites" parent:_mainLayer];
+	[playerSprite transformPosition:ccp(_levelSize.width/2, 100)];
+	[playerSprite transformScale:5];
+	_player = [[Player alloc] initWithSprite:playerSprite];
 	
+	/*
+		_playPauseButton = [_levelLoader createSpriteWithName:@"Play_inactive" fromSheet:@"HUD" fromSHFile:@"Spritesheet"];
+	[_playPauseButton prepareAnimationNamed:@"Play_Pause_Button" fromSHScene:@"Spritesheet"];
+	[_playPauseButton transformPosition: ccp(_playPauseButton.boundingBox.size.width/2+HUD_BUTTON_MARGIN_H,_playPauseButton.boundingBox.size.height/2+HUD_BUTTON_MARGIN_V)];
+	[_playPauseButton registerTouchBeganObserver:self selector:@selector(onTouchBeganPlayPause:)];
+	[_playPauseButton registerTouchEndedObserver:self selector:@selector(onTouchEndedPlayPause:)];
+*/
 	
 }
 
@@ -146,10 +154,7 @@
 	// generally best to keep the time step and iterations fixed.
 	_world->Step(dt, velocityIterations, positionIterations);
 	
-	
-	if(_isMoving) {
-		[_playerSprite transformPosition:ccpAdd(_movementVector, _playerSprite.position)];
-	}
+	[_player update:dt];
 }
 
 
@@ -164,8 +169,7 @@
 		
 		if(location.x < 300*SCALING_FACTOR_H && location.y < 300*SCALING_FACTOR_V) {
 			//touching joystick
-			_isMoving = true;
-			_movementVector = ccp(0,0);
+			[_player setMoving:true];
 			_joystickCenter = location;
 		}
 	}
@@ -181,18 +185,17 @@
 		location = [[CCDirector sharedDirector] convertToGL: location];
 		
 		if(false) {
-			//handle non joystick movements
+			//	handle non joystick movements
 			continue;
 		}
 		
 		CGPoint diff = ccpSub(location, _joystickCenter);
-		_movementVector = ccpMult(ccpNormalize(diff), 5);
+		
+		//bump up the speed
+		[_player setMovementVector:ccpMult(ccpNormalize(diff), 100*SCALING_FACTOR)];
 		
 		//slowly redefine our center point so the joystick is more sensitive
-		_joystickCenter = ccpAdd(ccpMult(diff,.10), _joystickCenter);
-
-
-		DebugLog(@"Movement vector: %@", NSStringFromCGPoint(_movementVector));
+		_joystickCenter = ccpAdd(ccpMult(diff, .10), _joystickCenter);
 	}
 }
 
@@ -200,7 +203,7 @@
 	_numTouchesOnScreen-= [touches count];
 	if(_numTouchesOnScreen <= 0) {
 		_numTouchesOnScreen = 0;
-		_isMoving = false;
+		[_player setMoving:false];
 	}
 }
 
@@ -213,7 +216,7 @@
 
 
 -(void) onExit {
-	if(DEBUG_MEMORY) DebugLog(@"HelloWorldLayer onExit");
+	if(DEBUG_MEMORY) DebugLog(@"GameScene onExit");
 
 	for(LHSprite* sprite in _levelLoader.allSprites) {
 		[sprite stopAnimation];
@@ -223,8 +226,13 @@
 }
 
 -(void) dealloc {
-	if(DEBUG_MEMORY) DebugLog(@"HelloWorldLayer dealloc");
+	if(DEBUG_MEMORY) DebugLog(@"GameScene dealloc");
 	if(DEBUG_MEMORY) report_memory();
+	
+	if(_player != nil) {
+		[_player release];
+		_player = nil;
+	}
 	
 	[_levelLoader removeAllPhysics];
 	[_levelLoader release];
@@ -235,7 +243,7 @@
 			
 	[super dealloc];
 	
-	if(DEBUG_MEMORY) DebugLog(@"End HelloWorldLayer dealloc");
+	if(DEBUG_MEMORY) DebugLog(@"End GameScene dealloc");
 	if(DEBUG_MEMORY) report_memory();
 }
 
