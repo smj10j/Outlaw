@@ -103,7 +103,25 @@
 	[playerSprite transformScale:5];
 	_player = [[Player alloc] initWithSprite:playerSprite];
 	
-	/*
+	for(int i = 0; i < 10; i++) {
+		LHSprite* enemySprite = [_levelLoader createSpriteWithName:@"11-1" fromSheet:@"Tiles" fromSHFile:@"OutlawSprites" parent:_mainLayer];
+		[enemySprite transformPosition:ccp(arc4random_uniform(_levelSize.width),
+											arc4random_uniform(_levelSize.height))];
+		[enemySprite transformScale:5];
+
+		_enemies.push_back([[Outlaw alloc] initWithSprite:enemySprite]);
+	}
+	
+	for(int i = 0; i < 10; i++) {
+		LHSprite* enemySprite = [_levelLoader createSpriteWithName:@"19-0" fromSheet:@"Tiles" fromSHFile:@"OutlawSprites" parent:_mainLayer];
+		[enemySprite transformPosition:ccp(arc4random_uniform(_levelSize.width),
+											arc4random_uniform(_levelSize.height))];
+		[enemySprite transformScale:5];
+
+		_enemies.push_back([[Lawman alloc] initWithSprite:enemySprite]);
+	}
+	
+/*
 		_playPauseButton = [_levelLoader createSpriteWithName:@"Play_inactive" fromSheet:@"HUD" fromSHFile:@"Spritesheet"];
 	[_playPauseButton prepareAnimationNamed:@"Play_Pause_Button" fromSHScene:@"Spritesheet"];
 	[_playPauseButton transformPosition: ccp(_playPauseButton.boundingBox.size.width/2+HUD_BUTTON_MARGIN_H,_playPauseButton.boundingBox.size.height/2+HUD_BUTTON_MARGIN_V)];
@@ -155,6 +173,9 @@
 	_world->Step(dt, velocityIterations, positionIterations);
 	
 	[_player update:dt];
+	for(Enemy* enemy : _enemies) {
+		[enemy update:dt];
+	}
 }
 
 
@@ -233,6 +254,11 @@
 		[_player release];
 		_player = nil;
 	}
+	
+	for(Enemy* enemy : _enemies) {
+		[enemy release];
+	}
+	_enemies.clear();
 	
 	[_levelLoader removeAllPhysics];
 	[_levelLoader release];

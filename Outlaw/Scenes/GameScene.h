@@ -9,6 +9,10 @@
 #import "Common.h"
 #import "Box2D.h"
 #import "Player.h"
+#import "Outlaw.h"
+#import "Lawman.h"
+#include <vector>
+using namespace std;
 
 // HelloWorldLayer
 @interface GameScene : CCLayer
@@ -21,12 +25,12 @@
 
 
 	Player* _player;
+	vector<Enemy*> _enemies;
 
 	CGPoint _joystickCenter;
 	int _numTouchesOnScreen;
 
 	float _fixedTimestepAccumulator;
-	
 	
 	
 }
