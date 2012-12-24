@@ -24,9 +24,10 @@
 	if(_isMoving) {
 		_sprite.parent.position = ccpAdd(ccpMult(_movementVector, -dt), _sprite.parent.position);
 		
-		float targetDegrees = CC_RADIANS_TO_DEGREES(atan2f(_movementVector.x, _movementVector.y));
-		float newDegrees = (_sprite.rotation*14 + targetDegrees)/15;
-		[_sprite transformRotation:newDegrees];
+		float rotationRadians = atan2f(_movementVector.x, _movementVector.y);		
+		int targetRotation = CC_RADIANS_TO_DEGREES(rotationRadians);
+		double smoothedRotation = targetRotation*_sprite.rotation < 0 || abs(_sprite.rotation-targetRotation) > 180 ? targetRotation : (double)(targetRotation+(int)_sprite.rotation*14)/15;
+		[_sprite transformRotation:smoothedRotation];
 	}
 	
 	
