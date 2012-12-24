@@ -9,27 +9,15 @@
 #ifndef Outlaw_Player_h
 #define Outlaw_Player_h
 
-#import "Common.h"
-#import "LevelHelperLoader.h"
-#import "CCPhysicsSprite.h"
+#import "Actor.h"
 
-@interface Player : NSObject {
+@interface Player : Actor {
 
-	LHSprite* _sprite;
-
-	bool _isMoving;
-	CGPoint _movementVector;	
 }
 
 -(id)initWithSprite:(LHSprite*)sprite;
 
 -(void)update:(ccTime)dt;
-
-
--(LHSprite*)sprite;
-
--(void)setMovementVector:(CGPoint)movementVector;
--(void)setMoving:(bool)isMoving;
 
 -(void)dealloc;
 

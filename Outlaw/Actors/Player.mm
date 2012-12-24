@@ -12,45 +12,29 @@
 
 
 -(id)initWithSprite:(LHSprite*)sprite {
-	if(self = [super init]) {
-		_sprite = sprite;
-		[_sprite retain];
-		
-		_isMoving = false;
-		_movementVector = ccp(0,0);
+	if(self = [super initWithSprite:sprite]) {
+
+		_type = @"Player";
 	}
 	return self;
 }
 
 -(void)update:(ccTime)dt {
+
 	if(_isMoving) {
-		[_sprite transformPosition:ccpAdd(ccpMult(_movementVector, dt), _sprite.position)];
+		_sprite.parent.position = ccpAdd(ccpMult(_movementVector, -dt), _sprite.parent.position);
+		
+		float targetDegrees = CC_RADIANS_TO_DEGREES(atan2f(_movementVector.x, _movementVector.y));
+		float newDegrees = (_sprite.rotation*14 + targetDegrees)/15;
+		[_sprite transformRotation:newDegrees];
 	}
+	
+	
+	[super update:dt];
 }
-
--(LHSprite*)sprite {
-	return _sprite;
-}
-
--(void)setMovementVector:(CGPoint)movementVector {
-	_movementVector = movementVector;
-	DebugLog(@"Movement vector: %@", NSStringFromCGPoint(_movementVector));
-}
-
--(void)setMoving:(bool)isMoving {
-	_isMoving = isMoving;
-	if(!_isMoving) {
-		[self setMovementVector:ccp(0,0)];
-	}
-}
-
 
 
 -(void)dealloc {
-	if(_sprite != nil) {
-		[_sprite release];
-		_sprite = nil;
-	}
 	[super dealloc];
 }
 

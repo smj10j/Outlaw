@@ -9,29 +9,16 @@
 #ifndef Outlaw_Enemy_h
 #define Outlaw_Enemy_h
 
-#import "Common.h"
-#import "LevelHelperLoader.h"
-#import "CCPhysicsSprite.h"
+#import "Actor.h"
 
-@interface Enemy : NSObject {
+@interface Enemy : Actor {
 
-	LHSprite* _sprite;
-
-	bool _isMoving;
-	CGPoint _movementVector;
-	
-	double _lifetime;
-	int _seed;
+	bool _hasTarget;
 }
 
 -(id)initWithSprite:(LHSprite*)sprite;
 
 -(void)update:(ccTime)dt;
-
--(LHSprite*)sprite;
-
--(void)setMovementVector:(CGPoint)movementVector;
--(void)setMoving:(bool)isMoving;
 
 -(void)dealloc;
 

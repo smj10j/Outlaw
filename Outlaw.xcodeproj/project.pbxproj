@@ -21,10 +21,14 @@
 		76349743497a169e11bcd58e /* LHParallaxNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2e88ce82f9ba44601b674f2b /* LHParallaxNode.mm */; };
 		7c4477967b3e8d5773baaf1c /* LHSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1dd46984bf9e2bae0b50594e /* LHSprite.mm */; };
 		868944766f6c8d60c08dabfa /* LHContactNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = 49a864eb542f01b4e9d96737 /* LHContactNode.mm */; };
-		AA2D9E171688E50700F18136 /* Player.mm in Sources */ = {isa = PBXBuildFile; fileRef = AA2D9E161688E50700F18136 /* Player.mm */; };
+		AA2D9E171688E50700F18136 /* Actor.mm in Sources */ = {isa = PBXBuildFile; fileRef = AA2D9E161688E50700F18136 /* Actor.mm */; };
 		AA2D9E1A1688E52C00F18136 /* Enemy.mm in Sources */ = {isa = PBXBuildFile; fileRef = AA2D9E191688E52C00F18136 /* Enemy.mm */; };
 		AA2D9E1D1688E76500F18136 /* Outlaw.mm in Sources */ = {isa = PBXBuildFile; fileRef = AA2D9E1C1688E76500F18136 /* Outlaw.mm */; };
 		AA2D9E201688E7FF00F18136 /* Lawman.mm in Sources */ = {isa = PBXBuildFile; fileRef = AA2D9E1F1688E7FF00F18136 /* Lawman.mm */; };
+		AA2D9E231689101A00F18136 /* Player.mm in Sources */ = {isa = PBXBuildFile; fileRef = AA2D9E221689101A00F18136 /* Player.mm */; };
+		AA2D9E271689161E00F18136 /* OutlawSprites_Actors-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = AA2D9E241689161E00F18136 /* OutlawSprites_Actors-hd.png */; };
+		AA2D9E281689161E00F18136 /* OutlawSprites_Actors-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = AA2D9E251689161E00F18136 /* OutlawSprites_Actors-ipadhd.png */; };
+		AA2D9E291689161E00F18136 /* OutlawSprites_Actors.png in Resources */ = {isa = PBXBuildFile; fileRef = AA2D9E261689161E00F18136 /* OutlawSprites_Actors.png */; };
 		AAF3E0BC168788BF0096D7C6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAF3E0BB168788BF0096D7C6 /* QuartzCore.framework */; };
 		AAF3E0BE168788BF0096D7C6 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAF3E0BD168788BF0096D7C6 /* OpenGLES.framework */; };
 		AAF3E0C0168788BF0096D7C6 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAF3E0BF168788BF0096D7C6 /* OpenAL.framework */; };
@@ -268,14 +272,19 @@
 		833ae0db85155bff9ee8b878 /* LHLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHLayer.h; sourceTree = "<group>"; };
 		9a81c1fbee6e13013cc27d9b /* LHSettings.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = LHSettings.mm; sourceTree = "<group>"; };
 		9abcf5a26f704879bbed9082 /* LHCuttingEngineMgr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHCuttingEngineMgr.h; sourceTree = "<group>"; };
-		AA2D9E151688E50700F18136 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
-		AA2D9E161688E50700F18136 /* Player.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Player.mm; sourceTree = "<group>"; };
+		AA2D9E151688E50700F18136 /* Actor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Actor.h; sourceTree = "<group>"; };
+		AA2D9E161688E50700F18136 /* Actor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Actor.mm; sourceTree = "<group>"; };
 		AA2D9E181688E52C00F18136 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
 		AA2D9E191688E52C00F18136 /* Enemy.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Enemy.mm; sourceTree = "<group>"; };
 		AA2D9E1B1688E76500F18136 /* Outlaw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Outlaw.h; sourceTree = "<group>"; };
 		AA2D9E1C1688E76500F18136 /* Outlaw.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Outlaw.mm; sourceTree = "<group>"; };
 		AA2D9E1E1688E7FF00F18136 /* Lawman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lawman.h; sourceTree = "<group>"; };
 		AA2D9E1F1688E7FF00F18136 /* Lawman.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Lawman.mm; sourceTree = "<group>"; };
+		AA2D9E211689101A00F18136 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		AA2D9E221689101A00F18136 /* Player.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Player.mm; sourceTree = "<group>"; };
+		AA2D9E241689161E00F18136 /* OutlawSprites_Actors-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "OutlawSprites_Actors-hd.png"; sourceTree = "<group>"; };
+		AA2D9E251689161E00F18136 /* OutlawSprites_Actors-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "OutlawSprites_Actors-ipadhd.png"; sourceTree = "<group>"; };
+		AA2D9E261689161E00F18136 /* OutlawSprites_Actors.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OutlawSprites_Actors.png; sourceTree = "<group>"; };
 		AAF3E0B7168788BF0096D7C6 /* Outlaw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Outlaw.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAF3E0BB168788BF0096D7C6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		AAF3E0BD168788BF0096D7C6 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -792,8 +801,10 @@
 				AA2D9E1C1688E76500F18136 /* Outlaw.mm */,
 				AA2D9E181688E52C00F18136 /* Enemy.h */,
 				AA2D9E191688E52C00F18136 /* Enemy.mm */,
-				AA2D9E151688E50700F18136 /* Player.h */,
-				AA2D9E161688E50700F18136 /* Player.mm */,
+				AA2D9E211689101A00F18136 /* Player.h */,
+				AA2D9E221689101A00F18136 /* Player.mm */,
+				AA2D9E151688E50700F18136 /* Actor.h */,
+				AA2D9E161688E50700F18136 /* Actor.mm */,
 			);
 			path = Actors;
 			sourceTree = "<group>";
@@ -1396,6 +1407,9 @@
 		AAF3E30416878F2B0096D7C6 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				AA2D9E241689161E00F18136 /* OutlawSprites_Actors-hd.png */,
+				AA2D9E251689161E00F18136 /* OutlawSprites_Actors-ipadhd.png */,
+				AA2D9E261689161E00F18136 /* OutlawSprites_Actors.png */,
 				AAF3E30516878F2B0096D7C6 /* OutlawSprites.pshs */,
 				AAF3E30616878F2B0096D7C6 /* OutlawSprites_Tiles-hd.png */,
 				AAF3E30716878F2B0096D7C6 /* OutlawSprites_Tiles-ipadhd.png */,
@@ -1621,6 +1635,9 @@
 				AAF3E42C1687956E0096D7C6 /* VERSION in Resources */,
 				AAF3E4571687A1930096D7C6 /* GameConfig.plist in Resources */,
 				AAF3E45D1687AA9A0096D7C6 /* Levels in Resources */,
+				AA2D9E271689161E00F18136 /* OutlawSprites_Actors-hd.png in Resources */,
+				AA2D9E281689161E00F18136 /* OutlawSprites_Actors-ipadhd.png in Resources */,
+				AA2D9E291689161E00F18136 /* OutlawSprites_Actors.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1831,10 +1848,11 @@
 				AAF3E4211687956E0096D7C6 /* Reachability.m in Sources */,
 				AAF3E4271687956E0096D7C6 /* SSKeychain.m in Sources */,
 				AAF3E4511687A0330096D7C6 /* ConfigManager.mm in Sources */,
-				AA2D9E171688E50700F18136 /* Player.mm in Sources */,
+				AA2D9E171688E50700F18136 /* Actor.mm in Sources */,
 				AA2D9E1A1688E52C00F18136 /* Enemy.mm in Sources */,
 				AA2D9E1D1688E76500F18136 /* Outlaw.mm in Sources */,
 				AA2D9E201688E7FF00F18136 /* Lawman.mm in Sources */,
+				AA2D9E231689101A00F18136 /* Player.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

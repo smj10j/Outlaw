@@ -24,6 +24,7 @@
 
 		_patrolPointIndex = 0;
 		_isMoving = true;
+		_type = @"Lawman";
 
 	}
 	return self;
@@ -31,14 +32,16 @@
 
 -(void)update:(ccTime)dt {
 
-	CGPoint diff = ccpSub(_patrolPoints[_patrolPointIndex], _sprite.position);
-	if(ccpLengthSQ(diff) < 100) {
-		_patrolPointIndex++;
-		if(_patrolPointIndex >= _patrolPoints.size()) {
-			_patrolPointIndex = 0;
+	if(!_hasTarget) {
+		CGPoint diff = ccpSub(_patrolPoints[_patrolPointIndex], _sprite.position);
+		if(ccpLengthSQ(diff) < 100) {
+			_patrolPointIndex++;
+			if(_patrolPointIndex >= _patrolPoints.size()) {
+				_patrolPointIndex = 0;
+			}
+			diff = ccpSub(_patrolPoints[_patrolPointIndex], _sprite.position);
+			[self setMovementVector:ccpMult(ccpNormalize(diff), (arc4random_uniform(30)+20)*SCALING_FACTOR)];
 		}
-		diff = ccpSub(_patrolPoints[_patrolPointIndex], _sprite.position);
-		[self setMovementVector:ccpMult(ccpNormalize(diff), (arc4random_uniform(50)+50)*SCALING_FACTOR)];
 	}
 			
 	[super update:dt];

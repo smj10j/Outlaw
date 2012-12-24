@@ -83,14 +83,14 @@
 	DebugLog(@"Drawing background...");
 	
 	//draw the background tiles
-	LHSprite* sandTile = [_levelLoader createSpriteWithName:@"4-7" fromSheet:@"Tiles" fromSHFile:@"OutlawSprites" parent:_mainLayer];
-	[sandTile transformScale:5];
-	for(int x = -sandTile.boundingBox.size.width/2; x < _levelSize.width + sandTile.boundingBox.size.width/2; ) {
-		for(int y = -sandTile.boundingBox.size.height/2; y < _levelSize.height + sandTile.boundingBox.size.width/2; ) {
-			LHSprite* sandTile = [_levelLoader createSpriteWithName:@"4-7" fromSheet:@"Tiles" fromSHFile:@"OutlawSprites" parent:_mainLayer];
+	LHSprite* sandTile = [_levelLoader createBatchSpriteWithName:@"4-7" fromSheet:@"Tiles" fromSHFile:@"OutlawSprites"];
+	[sandTile transformScale:10];
+	for(int x = -_levelSize.width; x < _levelSize.width*2; ) {
+		for(int y = -_levelSize.height; y < _levelSize.height*2; ) {
+			LHSprite* sandTile = [_levelLoader createBatchSpriteWithName:@"4-7" fromSheet:@"Tiles" fromSHFile:@"OutlawSprites"];
 			[sandTile setZOrder:0];
 			[sandTile transformPosition:ccp(x,y)];
-			[sandTile transformScale:5];
+			[sandTile transformScale:10];
 			y+= sandTile.boundingBox.size.height;
 		}
 		x+= sandTile.boundingBox.size.width;
@@ -98,25 +98,22 @@
 	[sandTile removeSelf];
 	
 	
-	LHSprite* playerSprite = [_levelLoader createSpriteWithName:@"19-11" fromSheet:@"Tiles" fromSHFile:@"OutlawSprites" parent:_mainLayer];
+	LHSprite* playerSprite = [_levelLoader createSpriteWithName:@"player" fromSheet:@"Actors" fromSHFile:@"OutlawSprites" parent:_mainLayer];
 	[playerSprite transformPosition:ccp(_levelSize.width/2, 100)];
-	[playerSprite transformScale:5];
 	_player = [[Player alloc] initWithSprite:playerSprite];
 	
-	for(int i = 0; i < 10; i++) {
-		LHSprite* enemySprite = [_levelLoader createSpriteWithName:@"11-1" fromSheet:@"Tiles" fromSHFile:@"OutlawSprites" parent:_mainLayer];
-		[enemySprite transformPosition:ccp(arc4random_uniform(_levelSize.width),
-											arc4random_uniform(_levelSize.height))];
-		[enemySprite transformScale:5];
+	for(int i = 0; i < 40; i++) {
+		LHSprite* enemySprite = [_levelLoader createBatchSpriteWithName:@"outlaw" fromSheet:@"Actors" fromSHFile:@"OutlawSprites"];
+		[enemySprite transformPosition:ccp((int)arc4random_uniform(_levelSize.width*3) - _levelSize.width,
+											(int)arc4random_uniform(_levelSize.height*3) - _levelSize.height)];
 
 		_enemies.push_back([[Outlaw alloc] initWithSprite:enemySprite]);
 	}
 	
 	for(int i = 0; i < 10; i++) {
-		LHSprite* enemySprite = [_levelLoader createSpriteWithName:@"19-0" fromSheet:@"Tiles" fromSHFile:@"OutlawSprites" parent:_mainLayer];
+		LHSprite* enemySprite = [_levelLoader createBatchSpriteWithName:@"lawman" fromSheet:@"Actors" fromSHFile:@"OutlawSprites"];
 		[enemySprite transformPosition:ccp(arc4random_uniform(_levelSize.width),
 											arc4random_uniform(_levelSize.height))];
-		[enemySprite transformScale:5];
 
 		_enemies.push_back([[Lawman alloc] initWithSprite:enemySprite]);
 	}
